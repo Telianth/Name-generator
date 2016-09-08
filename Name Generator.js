@@ -1,21 +1,26 @@
 function theName(){
-  firstNameSyllables= ['gil','zi','thar','der','xal','na','ma','kil','xar','dar',
+ const firstNameSyllables= ['gil','zi','thar','der','xal','na','ma','kil','xar','dar',
   'lar','xen','un','vor','mar','il','al','ul','gar','zan','seg','dir','dalan',
-  'nek', 'for', 'ghel', 'bor','yd','ad','na','ren','sal','xyl','ny'];
-
+  'nek', 'for', 'ghel', 'bor','yd','ad','na','ren','sal','xyl','ny','yar','var',
+  'shik', 'shar','vu','ash'];
+//Integer Function
   function getInteger(min,max){
     return Math.floor((Math.random() * (max-min)) + min);
   }
-  let numberOfSyllables = getInteger(1,4);
-  function createName(){
-   firstName='';
-   for (var i = 0; i < numberOfSyllables ; i++) {
-        let g=Math.floor((Math.random() *firstNameSyllables.length));
-     firstName+=firstNameSyllables[g];
-   }
-  return firstName;
-  }
+  let numberOfSyllables = getInteger(1,4); //Chooses name range
 
-  console.log(createName());
+  //Randomizer
+  function createName(){
+   let firstName='';
+   for (let i = 0; i < numberOfSyllables ; i++) {
+        syllable=Math.floor((Math.random() *firstNameSyllables.length));
+     firstName+=firstNameSyllables[syllable];
+     firstName=firstName[0].toUpperCase() +firstName.slice(1);
+}
+
+ return firstName;
+ };
+
+  return createName();
 }
 console.log(theName());
