@@ -3,24 +3,34 @@ function theName(){
   'lar','xen','un','vor','mar','il','al','ul','gar','zan','seg','dir','dalan',
   'nek', 'for', 'ghel', 'bor','yd','ad','na','ren','sal','xyl','ny','yar','var',
   'shik', 'shar','vu','ash'];
+  const middleNameSyllables=['von','van','bin','an','de'];  
 //Integer Function
   function getInteger(min,max){
     return Math.floor((Math.random() * (max-min)) + min);
   }
-  let numberOfSyllables = getInteger(1,4); //Chooses name range
-
+  
   //Randomizer
-  function createName(){
+  function createFirstName(){
+      let numberOfSyllables = getInteger(3,4); //Length of Name
    let firstName='';
    for (let i = 0; i < numberOfSyllables ; i++) {
-        syllable=Math.floor((Math.random() *firstNameSyllables.length));
+      let  syllable=Math.floor((Math.random() *firstNameSyllables.length));
      firstName+=firstNameSyllables[syllable];
-     firstName=firstName[0].toUpperCase() +firstName.slice(1);
+     firstName=firstName[0].toUpperCase() +firstName.slice(1);//Capitalization
 }
 
  return firstName;
  };
-
-  return createName();
+function createLastName(){
+  let lastName='';
+  let numberOfSyllables = getInteger(2,4);//Length of Name
+  for (let i = 0; i < numberOfSyllables ; i++) {
+      let syllable=Math.floor((Math.random() *firstNameSyllables.length));
+    lastName+=firstNameSyllables[syllable];
+    lastName=lastName[0].toUpperCase() +lastName.slice(1);//Capitalization
+}    
+    return lastName;
+}
+return createFirstName() + ' '+ createLastName();
 }
 console.log(theName());
